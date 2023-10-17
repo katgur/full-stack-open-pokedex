@@ -6,15 +6,6 @@ on:
       - master
 
 jobs:
-  hello_world_job:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Say hello
-        run: echo "Hello World!"
-      - name: Show date
-        run: date
-      - name: Current dir
-        run: ls -l
   deployment_pipeline_job:
     runs-on: ubuntu-20.04
     steps:
@@ -25,3 +16,5 @@ jobs:
 
       - run: npm install
       - run: npm run eslint
+      - run: npm run build
+      - run: npm run test
