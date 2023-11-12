@@ -53,7 +53,9 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "The commit {{ GITHUB_SHA }} has been deployed."
+          severity: 'info'
+          text: "The new version of Pokedex has been successfully deployed."
+          details: "See github repository {{ EVENT_PAYLOAD.repository }}"
   tag_release_job:
     if: ${{ github.event_name == 'push' && !contains(toJson(join(github.event.commits.*.message)), '#skip') }}
     needs: [deployment_pipeline_job]
