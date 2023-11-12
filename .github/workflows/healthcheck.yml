@@ -4,8 +4,6 @@ on:
   push:
     branches:
     - master
-  schedule:
-    - cron: '5 * * * *'
 
 jobs:
   run_healthcheck_job:
